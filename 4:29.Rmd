@@ -74,3 +74,55 @@ example <- list(
 )
 ```
 
+---
+title: '444'
+output: html_document
+---
+```{r}
+library(dplyr)
+xmldata %>% xml_name()
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+library(xml2)
+xml2::read_xml("https://www.dgbas.gov.tw/public/data/open/Cen/Mp05012A107.xml") -> xmldata
+# 使用chrome檢視xml tree
+browseURL("https://www.dgbas.gov.tw/public/data/open/Cen/Mp05012A107.xml")
+```
+```{r}
+class(xmldata)
+```
+
+```{r}
+xml_path(xmldata)
+xml_children(xmldata) %>% as_list() %>% View
+xmldata %>% xml2::as_list() -> xmlList_0
+as.data.frame(xmlList_0) 
+```
+
+```{r}
+jsonlite::fromJSON("https://quality.data.gov.tw/dq_download_json.php?nid=31070&md5_url=14f0003f7e74ba0a55ef286eb5a33635") -> jsonLabor
+```
