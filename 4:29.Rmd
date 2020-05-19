@@ -105,7 +105,10 @@ You can also embed plots, for example:
 plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.if(!require("devtools")){
+  install.packages("devtools")
+}
+devtools::install_github("hadley/emo")
 ```{r}
 library(xml2)
 xml2::read_xml("https://www.dgbas.gov.tw/public/data/open/Cen/Mp05012A107.xml") -> xmldata
@@ -126,3 +129,26 @@ as.data.frame(xmlList_0)
 ```{r}
 jsonlite::fromJSON("https://quality.data.gov.tw/dq_download_json.php?nid=31070&md5_url=14f0003f7e74ba0a55ef286eb5a33635") -> jsonLabor
 ```
+```{r}
+if(!require("devtools")){
+  install.packages("devtools")
+}
+devtools::install_github("hadley/emo")
+```
+
+```{bash}
+
+```
+```{r}
+library(xml2)
+xml2::read_xml("https://www.dgbas.gov.tw/public/data/open/Cen/Mp05012A107.xml") -> xmldata
+# 使用chrome檢視xml tree
+browseURL("https://www.dgbas.gov.tw/public/data/open/Cen/Mp05012A107.xml")
+```
+```{r}
+xml_path(xmldata)
+xml_children(xmldata) %>% as_list() %>% View
+xmldata %>% xml2::as_list() -> xmlList_0
+as.data.frame(xmlList_0) 
+```
+
