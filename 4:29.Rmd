@@ -151,4 +151,30 @@ xml_children(xmldata) %>% as_list() %>% View
 xmldata %>% xml2::as_list() -> xmlList_0
 as.data.frame(xmlList_0) 
 ```
+```{r}
+f(w) %>%
+  g(.) %>% 
+  h(.) -> z
+```
+
+```{r}
+w %>%
+  f(.) %>%
+  g(.) %>%
+  h(.) -> z
+```
+```{r}
+num <- c(2,97,22,15,7)
+
+# 選出大於50的數字
+(num > 50) -> pick_big
+num[pick_big]
+```
+
+```{r}
+threeHeights %>%
+  .sort(., decreasing=T) %>%
+  names(.) %>%
+  .[[1]] -> highestPerson
+```
 
