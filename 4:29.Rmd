@@ -177,4 +177,7 @@ threeHeights %>%
   names(.) %>%
   .[[1]] -> highestPerson
 ```
+```{r}
+occupationalInjury <- jsonlite::fromJSON("https://apiservice.mol.gov.tw/OdService/download/A17000000J-000003-59W")
+```
 
