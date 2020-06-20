@@ -154,7 +154,7 @@ as.data.frame(xmlList_0)
 ```{r}
 f(w) %>%
   g(.) %>% 
-  h(.) -> z
+  h(.) -
 ```
 
 ```{r}
